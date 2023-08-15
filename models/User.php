@@ -35,7 +35,8 @@ class User{
     }
 
     public function getPwd(){
-        return $this->pwd;
+        return password_hash($this->db->real_escape_string($pwd), PASSWORD_BCRYPT, ['cost' => 4]);
+        // return $this->pwd;
     }
 
     public function getRole(){
@@ -63,7 +64,7 @@ class User{
     }
 
     public function setPwd($pwd){
-        $this->pwd = password_hash($this->db->real_escape_string($pwd), PASSWORD_BCRYPT, ['cost' => 4]);
+        $this->pwd = $pwd;
     }
 
     public function setRole($rol){
@@ -83,6 +84,28 @@ class User{
         $result = false;
         if($status_sql){
             $result = true;
+        }
+
+        return $result;
+    }
+
+    public function login(){
+        $result = false;
+        $email = $this->getEmail();
+        $pwd = $this->pwd;
+        # Check if user exists.
+        $sql = "SELECT * FROM user WHERE email = '$email'";
+        $fetch_user = $this->db->query($sql);
+
+        if( $fetch_user && ($fetch_user->num_rows ==  1) ){
+            $user = $fetch_user->fetch_object();
+
+            # Check Pwd.
+            $verify = password_verify($pwd, $user->password);
+            
+            if($verify){
+                $result = $user;
+            }
         }
 
         return $result;

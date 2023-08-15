@@ -45,5 +45,41 @@ class UserController{
         header("Location:/user/register?");
     } 
 
+    public function login(){
+        if( isset($_POST) ){
+            # Check User's credential and identify && Query to Database.
+            $user = new User();
+            $user->setEmail($_POST['email']);
+            $user->setPwd($_POST['pwd']);
+             
+            $identity = $user->login();
+
+            if($identity && is_object($identity)){
+                # Create a Session. 
+                $_SESSION['identity'] = $identity;
+
+                if($identity->role == "admin"){
+                    $_SESSION['admin'] = true;
+                }
+            }else{
+                $_SESSION['error_login'] = "¡Usuario No Identificado!";
+
+            }
+
+        }
+        header("Location:/");
+    }
+
+    public function logout(){
+        if(isset($_SESSION['identity'])){
+            unset($_SESSION['identity']);
+        }
+        if(isset($_SESSION['admin'])){
+            unset($_SESSION['admin']);
+        }
+
+        header("Location:/");
+    }
+
 
 }
