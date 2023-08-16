@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto 2: Shop</title>
     <link rel='stylesheet' type='text/css' href='<?=dir_url?>/assets/css/styles.css' />
+    <link rel='stylesheet' type='text/css' href='<?=dir_url?>/assets/css/table.css' />
 </head>
 
 <body>
@@ -21,10 +22,15 @@
         <!-- NavMenu -->
         <nav id="menu">
             <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Categoria 1</a></li>
-                <li><a href="#">Categoria 2</a></li>
-                <li><a href="#">Categoria 3</a></li>
+                <li><a href="/">Inicio</a></li>
+                <?php  
+                    $categories = Utils::categoryMenu();
+                ?>
+                <?php if($categories->num_rows > 1): ?>
+                    <?php while($category = $categories->fetch_object()): ?>
+                        <li><a href="#"><?=$category->name?></a></li>
+                    <?php endwhile; ?>
+                <?php endif; ?> 
             </ul>
         </nav>
         <!-- Content/Main -->

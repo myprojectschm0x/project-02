@@ -13,10 +13,9 @@ function showErrors(){
     $error = new ErrorController();
     $error->index();
 }
-
 if (isset($_GET['controller'])) {
-    $controller_name = ucfirst($_GET['controller']) . 'Controller';
-
+    $upper_controller = ucfirst($_GET['controller']);
+    $controller_name = $upper_controller.'Controller';
 }elseif(!isset($_GET['controller']) && !isset($_GET['action']) ){
     $controller_name = controller_default;
 } else {

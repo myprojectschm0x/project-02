@@ -17,13 +17,15 @@
         <div class="management">
             <ul>
                 <?php if ( isset($_SESSION['admin']) ) : ?>
-                    <li><a href="#">Gestionar Productos</a></li>
-                    <li><a href="#">Gestionar Categorías</a></li>
-                    <li><a href="#">Gestionar Pedidos</a></li>
+                    <li><a href="#">Administrar Productos</a></li>
+                    <li><a href="/category/index">Administrar Categorías</a></li>
+                    <li><a href="#">Administrar Pedidos</a></li>
                 <?php endif; ?>
                 <?php if (isset($_SESSION['identity'])) : ?>
                     <li><a href="#">Mis Pedidos</a></li>
                     <li><a href="/user/logout">Cerrar Sesión</a></li>
+                <?php else: ?>
+                    <li>Si no tienes cuenta, <a href="/user/register">¡Registrate ahí!</a></li>
                 <?php endif; ?>
             </ul>
         </div>

@@ -33,6 +33,13 @@ body{
     padding:6.8px;
     border-radius: 5px;
 }
+.subtitle2{
+    font-size: 29px;
+    margin: 19px 0;
+    padding: 10px;
+    border-bottom: 1px solid black;
+
+}
 #container{
     width: 90%;
     margin: 0 auto;
@@ -312,6 +319,31 @@ a:visited{
     padding: 10px;
     width: 70%;
     margin: 19px auto;
+}
+
+
+
+#section .categories p{
+    margin: 18px 0;
+}
+#section .categories  p a{
+    text-decoration: none;
+}
+#section .categories .btn-category{
+    padding: 5px;
+    border-radius: 9px;
+}
+
+#section .categories .btn-green{
+    background-color: green;
+    color: white;
+}
+
+#section .category-create{
+    width: 90%;
+    margin: 0 auto;
+    padding: 11px;
+    margin-top: 19px;
 }
 
 /* ------------------------------------------------------------------ */
