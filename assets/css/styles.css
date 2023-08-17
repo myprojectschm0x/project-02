@@ -49,10 +49,13 @@ body{
 }
 
 input[type="text"],
+input[type="number"],
 input[type="email"],
 input[type="password"],
 input[type="submit"],
-label{
+label,
+textarea,
+select{
     display: block;
     width: 100%;
     cursor: pointer;
@@ -60,7 +63,10 @@ label{
 
 input[type="text"],
 input[type="email"],
-input[type="password"]{
+input[type="number"],
+input[type="password"],
+textarea,
+select{
     margin: 15px 0;
     padding: 10px;
     border:none;
@@ -71,12 +77,16 @@ input[type="password"]{
 
 input[type="text"]:focus-visible,
 input[type="email"]:focus-visible,
-input[type="password"]:focus-visible{
+input[type="number"]:focus-visible,
+input[type="password"]:focus-visible,
+textarea:focus-visible{
     outline: none;
 }
 input[type="text"]:focus,
 input[type="email"]:focus,
-input[type="password"]:focus
+input[type="password"]:focus,
+input[type="number"]:focus,
+textarea:focus
 {
     border:none;
     border-radius: 1px;
@@ -315,26 +325,26 @@ a:visited{
     width: 100px;
 } 
 
-.login_block{
+.list_block{
     padding: 10px;
-    width: 70%;
+    width: 95%;
     margin: 19px auto;
 }
 
 
 
-#section .categories p{
+#section .list p{
     margin: 18px 0;
 }
-#section .categories  p a{
+#section .list  p a{
     text-decoration: none;
 }
-#section .categories .btn-category{
+#section .list .btn-category{
     padding: 5px;
     border-radius: 9px;
 }
 
-#section .categories .btn-green{
+#section .list .btn-green{
     background-color: green;
     color: white;
 }

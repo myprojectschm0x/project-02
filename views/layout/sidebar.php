@@ -17,7 +17,7 @@
         <div class="management">
             <ul>
                 <?php if ( isset($_SESSION['admin']) ) : ?>
-                    <li><a href="#">Administrar Productos</a></li>
+                    <li><a href="/product/management">Administrar Productos</a></li>
                     <li><a href="/category/index">Administrar Categorías</a></li>
                     <li><a href="#">Administrar Pedidos</a></li>
                 <?php endif; ?>

@@ -1,6 +1,6 @@
-<section id="section" class="login_block">
+<section id="section" class="list_block">
     <h2 class="subtitle2">Categorías</h2>
-    <div class="categories">
+    <div class="list">
         <p>
             <a class="btn-category btn-green" href="/category/create">Crear una categoría.</a>
         </p>
