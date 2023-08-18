@@ -103,11 +103,28 @@ class Product{
                 ."curdate(), "
                 ."'{$this->thumbnail}'"
                 ." )";
+        # MOstrar errores; Tips para depurar.
+        // echo $this->db->error;
+        // die();
         $status_sql = $this->db->query($sql);
+
+        
         $result = false;
         if($status_sql){
             $result = true;
         }
+        return $result;
+    }
+
+    public function delete(){
+        $sql = "DELETE FROM product WHERE id = {$this->getID()}";
+        $status_sql = $this->db->query($sql);
+        
+        $result = false;
+        if($status_sql){
+            $result = true;
+        }
+
         return $result;
     }
 

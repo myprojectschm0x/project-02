@@ -41,7 +41,7 @@ body{
 
 }
 #container{
-    width: 90%;
+    width: 96%;
     margin: 0 auto;
     /* height: 100vh; */
     box-shadow: 0 0 10px black;
@@ -53,6 +53,7 @@ input[type="number"],
 input[type="email"],
 input[type="password"],
 input[type="submit"],
+input[type="file"],
 label,
 textarea,
 select{
@@ -65,6 +66,7 @@ input[type="text"],
 input[type="email"],
 input[type="number"],
 input[type="password"],
+input[type="file"],
 textarea,
 select{
     margin: 15px 0;
@@ -79,6 +81,7 @@ input[type="text"]:focus-visible,
 input[type="email"]:focus-visible,
 input[type="number"]:focus-visible,
 input[type="password"]:focus-visible,
+input[type="file"]:focus-visible,
 textarea:focus-visible{
     outline: none;
 }
@@ -86,6 +89,7 @@ input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus,
 input[type="number"]:focus,
+input[type="file"]:focus,
 textarea:focus
 {
     border:none;
@@ -130,6 +134,7 @@ input[type="submit"]:active{
     background-color: red;
 }
 
+
 a{
     color: #6b6b6c95
 }
@@ -143,6 +148,25 @@ a:visited{
 .text-center{
     text-align: center;
 }
+.text-decoration-none{
+    text-decoration: none;
+}
+.btn{
+    padding: 5px;
+    border-radius: 9px;
+    color:white;
+}
+.btn-green{
+    background-color: green;
+}
+.btn-green:active{
+    color:white;
+}
+
+.btn-danger{
+    background-color: red;
+}
+
 
 .btn-buy{
     width: 70%;
@@ -330,7 +354,9 @@ a:visited{
     width: 95%;
     margin: 19px auto;
 }
-
+#section .list a{
+    color:white;
+}
 
 
 #section .list p{
@@ -339,15 +365,8 @@ a:visited{
 #section .list  p a{
     text-decoration: none;
 }
-#section .list .btn-category{
-    padding: 5px;
-    border-radius: 9px;
-}
 
-#section .list .btn-green{
-    background-color: green;
-    color: white;
-}
+
 
 #section .category-create{
     width: 90%;

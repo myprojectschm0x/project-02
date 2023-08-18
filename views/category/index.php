@@ -2,7 +2,7 @@
     <h2 class="subtitle2">Categorías</h2>
     <div class="list">
         <p>
-            <a class="btn-category btn-green" href="/category/create">Crear una categoría.</a>
+            <a class="btn btn-green" href="/category/create">Crear una categoría.</a>
         </p>
         <?php if( isset($_SESSION['category']) && $_SESSION['category'] == 'successful' ): ?>
             <span>¡Categoría Creada con Éxito!</span>

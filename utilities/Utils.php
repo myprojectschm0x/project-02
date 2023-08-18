@@ -26,4 +26,11 @@ class Utils{
 
         return $categories;
     }
+
+    public static function listCategory(){
+        require_once 'models/Category.php';
+        $category = new Category();
+
+        return $category->list();
+    }
 }
