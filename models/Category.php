@@ -44,7 +44,7 @@ class Category{
     }
 
     public function menu(){
-        $sql = "select * from category order by id asc limit 3";
+        $sql = "select * from category order by id asc";
         $arr_categories = $this->db->query($sql);
 
         return $arr_categories;

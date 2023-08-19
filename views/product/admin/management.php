@@ -4,6 +4,10 @@
         <p>
             <a class="btn btn-green" href="/product/create">Crear un producto.</a>
         </p>
+        <?php 
+            $dir = dirname(__DIR__, 2);
+            require_once $dir.'/alert/index.php'; 
+        ?>
         <?php if ($products->num_rows > 1) : ?>
             <table>
                 <tr>
@@ -23,7 +27,7 @@
                         <td><?= $product->price ?></td>
                         <td><?= $product->stock ?></td>
                         <td><?= $product->date ?></td>
-                        <td><a href="#" class="btn btn-green text-decoration-none">Editar</a> <a href="/product/delete?id=<?=$product->id?>" class="btn btn-danger text-decoration-none">Borrar</a></td>
+                        <td><a href="/product/edit&id=<?=$product->id?>" class="btn btn-green text-decoration-none">Editar</a> <a href="/product/delete&id=<?=$product->id?>" class="btn btn-danger text-decoration-none">Borrar</a></td>
                     </tr>
                 <?php endwhile; ?>
             </table>

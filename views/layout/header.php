@@ -28,7 +28,7 @@
                 ?>
                 <?php if($categories->num_rows > 1): ?>
                     <?php while($category = $categories->fetch_object()): ?>
-                        <li><a href="#"><?=$category->name?></a></li>
+                        <li><a href="/product/category&category_id=<?=$category->id?>"><?=$category->name?></a></li>
                     <?php endwhile; ?>
                 <?php endif; ?> 
             </ul>

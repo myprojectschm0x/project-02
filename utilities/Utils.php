@@ -3,9 +3,13 @@ class Utils{
 
     // public function __construct(){}
 
-    public static function deleteSession($sessionName){
+    public static function deleteSession($sessionName, $arr2 = null){
         if(isset($sessionName)){
-            unset($_SESSION[$sessionName]);
+            if(isset($arr2)){
+                unset($_SESSION[$sessionName][$arr2]);
+            }else{
+                unset($_SESSION[$sessionName]);
+            }
         }
         return $sessionName;
     }

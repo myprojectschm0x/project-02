@@ -7,6 +7,7 @@ require_once 'config/conf.php';
 require_once 'utilities/Utils.php';
 require_once 'views/layout/header.php';
 require_once 'views/layout/sidebar.php';
+define("PATH",__DIR__);
 
 
 function showErrors(){

@@ -274,7 +274,8 @@ a:visited{
     "content login";
     background-color: #f0f0f0;
     min-height: 700px;
-    height: 1126px;
+    /* height: 1126px; */
+    height: auto;
 }
 
 #main #aside{
@@ -319,6 +320,7 @@ a:visited{
     gap: 30px;
     width: 97%;
     margin: 0 auto;
+    margin-bottom: 30px;
     padding: 15px;
     flex-wrap: wrap;    
     background-color: #d4f3ff;
@@ -337,7 +339,7 @@ a:visited{
 }
 
 #section .product .item h2{
-    font-size: 34px;
+    font-size: 22px;
     margin: 24px 0;
 }
 
@@ -374,6 +376,39 @@ a:visited{
     padding: 11px;
     margin-top: 19px;
 }
+
+#section .product-show{
+    display: block;
+    width: 97%;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: #d4f3ff;
+    border-radius: 9px;
+    border: 2px solid #7094f8;
+    box-shadow: 0 0 9px #7094f8;
+}
+
+#section .product-show .central-img{
+    width: 40%;
+    margin: 0 auto;
+}
+#section .product-show img{
+    width: 100%;
+    height: 300px;
+}
+#section .product-show p{
+    font-size: 20px;
+}
+#section .product-show span{
+    font-size: 13px;
+    color: #957070;
+}
+#section  .product-show textarea{
+    color: black;
+    border: 1px solid #957070;
+}
+
+
 
 /* ------------------------------------------------------------------ */
 /* FOOTER */

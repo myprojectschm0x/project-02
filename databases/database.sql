@@ -66,3 +66,4 @@ create table ticket (
     constraint fk_ticket_order foreign key (order_id) references `order` (id),
     constraint fk_ticket_product foreign key (product_id) references product (id)
 )engine=InnoDb;
+

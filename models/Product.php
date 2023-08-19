@@ -18,7 +18,7 @@ class Product{
     }
 
     public function getID(){
-        return $this->id;
+        return (int)$this->id;
     }
 
     public function getCategoryID(){
@@ -87,6 +87,19 @@ class Product{
         $this->thumbnail = $this->db->real_escape_string($img);
     }
 
+    public function getProduct(){
+        $sql = "select p.*, c.name as 'category_name' from product p "
+                ."inner join category c on p.category_id = c.id "
+                ."where p.id = {$this->getID()}";
+
+        return $this->db->query($sql);
+    }
+
+    public function getImg(){
+        $sql = "select p.thumbnail from product p where id = {$this->getID()}";
+        return $this->db->query($sql);
+    }
+
     public function list(){
         $sql = "select p.*, c.name as 'category' from product p "
                 ."inner join category c on p.category_id = c.id "
@@ -96,13 +109,18 @@ class Product{
     }
 
     public function save(){
+        $thumb = $this->getThumbnail() != '' ? $this->getThumbnail() : null;
         $sql = "insert into product(category_id, name, description, price, stock, discount, date, thumbnail) "
                 ."values({$this->getCategoryID()}, '{$this->getName()}', '{$this->getDescription()}', {$this->getPrice()}, "
                 ."{$this->getStock()}, "
                 ."{$this->getDiscount()}, "
-                ."curdate(), "
-                ."'{$this->thumbnail}'"
-                ." )";
+                ."curdate(), ";
+        if($thumb){
+            $sql .= "'$thumb', ";
+        }else{
+            $sql .= " null ";
+        }
+        $sql .= " )";
         # MOstrar errores; Tips para depurar.
         // echo $this->db->error;
         // die();
@@ -114,6 +132,39 @@ class Product{
             $result = true;
         }
         return $result;
+    }
+
+    public function update(){
+        $sql = "update product "
+                ."set name = '{$this->getName()}', "
+                ."category_id = {$this->getCategoryID()}, "
+                ."description = '{$this->getDescription()}', "
+                ."price = {$this->getPrice()}, "
+                ."stock = {$this->getStock()}, "
+                ."discount = {$this->getDiscount()}, "
+                ."date = curdate(), ";
+        if($this->getThumbnail() != null){
+            $sql .= "thumbnail = '{$this->thumbnail}' "; 
+        }else{
+            $sql .= "thumbnail = null " ;
+        }
+        $sql .= "where id = {$this->getID()}";
+        $update = $this->db->query($sql);
+
+        $result = false;
+        if($update){
+            $result = true;
+        }
+
+        return $result;
+    }
+
+    public function product_by_category(){
+        $sql = "select p.*, c.name as 'category_name' from product p "
+                ."inner join category c on p.category_id = c.id "
+                ."where p.category_id = {$this->getCategoryID()}";
+                
+        return $this->db->query($sql); 
     }
 
     public function delete(){
