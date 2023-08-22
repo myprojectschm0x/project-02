@@ -44,8 +44,10 @@
                 <input type="number" name="discount" id="discount" step="0.01" value="<?=$item->stock?>" />
 
                 <label for="thumbnail">Imagen</label>
-                <input type="file" name="thumbnail" accept="image/png, image/jpeg, image/jpg"/>
-                <!-- <input type="text" name="thumbnail" id="thumbnail" /> -->
+                <?php if($item->thumbnail):?>
+                    <img src="<?=base_url?>/uploads/images/<?=$item->thumbnail?>" alt="<?=$item->name?>" />
+                <?php endif; ?>
+                <input type="file" name="thumbnail" accept="image/png, image/jpeg, image/jpg" />
 
                 <input type="submit" value="Crear un producto" />
             </form>

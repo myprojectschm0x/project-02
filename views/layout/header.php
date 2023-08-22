@@ -16,7 +16,7 @@
         <header id="header">
             <div id="logo">
                 <img src="<?=dir_url?>assets/img/terminal_logo.png" alt="terminal Logo" />
-                <a href="#">Shop</a>
+                <a href="/product/index">Shop</a>
             </div>
         </header>
         <!-- NavMenu -->

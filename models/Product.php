@@ -109,16 +109,13 @@ class Product{
     }
 
     public function save(){
-        $thumb = $this->getThumbnail() != '' ? $this->getThumbnail() : null;
-        $sql = "insert into product(category_id, name, description, price, stock, discount, date, thumbnail) "
-                ."values({$this->getCategoryID()}, '{$this->getName()}', '{$this->getDescription()}', {$this->getPrice()}, "
+        $sql = "insert into product "
+                ."values(null, {$this->getCategoryID()}, '{$this->getName()}', '{$this->getDescription()}', {$this->getPrice()}, "
                 ."{$this->getStock()}, "
                 ."{$this->getDiscount()}, "
-                ."curdate(), ";
-        if($thumb){
-            $sql .= "'$thumb', ";
-        }else{
-            $sql .= " null ";
+                ."curdate() ";
+        if($this->getThumbnail()){
+            $sql .= ",'{$this->getThumbnail()}' ";
         }
         $sql .= " )";
         # MOstrar errores; Tips para depurar.
@@ -157,6 +154,11 @@ class Product{
         }
 
         return $result;
+    }
+
+    public function getRandomProduct($limit){
+        $sql = "select * from product order by rand() limit $limit";
+        return $this->db->query($sql);
     }
 
     public function product_by_category(){

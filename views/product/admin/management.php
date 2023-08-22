@@ -8,7 +8,7 @@
             $dir = dirname(__DIR__, 2);
             require_once $dir.'/alert/index.php'; 
         ?>
-        <?php if ($products->num_rows > 1) : ?>
+        <?php if ($products->num_rows >= 1) : ?>
             <table>
                 <tr>
                     <th>ID</th>

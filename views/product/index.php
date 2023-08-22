@@ -3,17 +3,11 @@
     <div class="spacing-90px">
     </div>
     <div class="product">
-        <?php if ($products) : ?>
+        <?php if ($products->num_rows >= 1) : ?>
             <?php while ($product = $products->fetch_object()) : ?>
                 <article class="item text-center">
                     <?php if ($product->thumbnail) : ?>
-                        <?=$product->thumbnail?>
-                        <?php var_dump(file_exists(base_url . '/uploads/images/' . $product->thumbnail)); ?>
-                        <?php if (file_exists(base_url . '/uploads/images/' . $product->thumbnail)) : ?>
-                            <img src="<?= base_url ?>/uploads/images/<?= $product->thumbnail ?>" alt="<?= $product->name ?>">
-                        <?php else : ?>
-                            <img src="<?= base_url ?>/uploads/images/default.jpg" alt="default">
-                        <?php endif; ?>
+                        <img src="<?= base_url ?>/uploads/images/<?=$product->thumbnail?>" alt="<?=$product->thumbnail?>">
                     <?php else : ?>
                         <img src="<?= base_url ?>/uploads/images/default.jpg" alt="default">
                     <?php endif; ?>
@@ -23,6 +17,7 @@
                 </article>
             <?php endwhile; ?>
         <?php else : ?>
+            <p>¡No hay productos que mostrar!</p>
         <?php endif; ?>
     </div>
 </section>

@@ -7,7 +7,7 @@ class ProductController
     {
         # Vie
         $product = new Product();
-        $products = $product->list();
+        $products = $product->getRandomProduct(6);
         require_once 'views/product/index.php';
     }
 
@@ -22,18 +22,20 @@ class ProductController
         require_once 'views/product/admin/management.php';
     }
 
-    public function show(){
-        if(isset($_GET['id'])){
+    public function show()
+    {
+        if (isset($_GET['id'])) {
             $product = new Product();
             $product->setID($_GET['id']);
             $fetch_product = $product->getProduct();
 
-            require_once 'views/product/show.php';
-        }   
+        }
+        require_once 'views/product/show.php';
     }
 
-    public function category(){
-        if(isset($_GET['category_id'])){
+    public function category()
+    {
+        if (isset($_GET['category_id'])) {
             $product = new Product();
             $product->setCategoryID($_GET['category_id']);
             $products = $product->product_by_category();
@@ -132,6 +134,7 @@ class ProductController
             $price = isset($_POST['price']) ? $_POST['price'] : false;
             $stock = isset($_POST['stock']) ? $_POST['stock'] : false;
             $discount = isset($_POST['discount']) ? $_POST['discount'] : null;
+            $current_img = isset($_POST['current_img']) ? $_POST['current_img'] : null;
 
             if ($name && $category_id && $price && $stock) {
                 $product = new Product();
@@ -144,29 +147,36 @@ class ProductController
                 $product->setDiscount($discount);
 
 
-                $img = $_FILES['thumbnail'];
-                $filename = $img['name'];
-                $mimetype = $img['type'];
+                if (isset($_FILES) && $_FILES['thumbnail']['name'] != '') {
 
-                if ($mimetype == "image/jpeg" || $mimetype == 'image/png' || $mimetype == 'img/jpg' || $mimetype == 'image/gif') {
-                    $current_img = $_POST['current_img'];
-                    $dir = dirname(__DIR__ . '../');
-                    $path_img = $dir . '/uploads/images/' . $current_img;
-                    $filename_w_date = time() . $filename;
-                    
-                    
-                    # Delete Img if exists.
-                    if (file_exists($path_img)) {
-                        unlink($path_img);
-                    }
+                    $img = $_FILES['thumbnail'];
+                    $filename = $img['name'];
+                    $mimetype = $img['type'];
 
-                    # Move the new Image to the Folder.
-                    if (is_dir($dir . '/uploads/images')) {
-                        move_uploaded_file($img['tmp_name'], $dir . '/uploads/images/' . $filename_w_date);
+                    if ($mimetype == "image/jpeg" || $mimetype == 'image/png' || $mimetype == 'img/jpg' || $mimetype == 'image/gif') {
+                        
+                        $dir = dirname(__DIR__ . '../');
+                        # Previous Image image to delete
+                        $path_img = $dir . '/uploads/images/' . $current_img;
+                        # New image
+                        $filename_w_date = time() . $filename;
+
+
+                        # Delete Img if exists.
+                        if (file_exists($path_img)) {
+                            unlink($path_img);
+                        }
+
+                        # Move the new Image to the Folder.
+                        if (is_dir($dir . '/uploads/images')) {
+                            move_uploaded_file($img['tmp_name'], $dir . '/uploads/images/' . $filename_w_date);
+                        }
+                        $product->setThumbnail($filename_w_date);
                     }
-                    $product->setThumbnail($filename_w_date);
                 }else{
-                    $product->setThumbnail(null);
+                    if($current_img){
+                        $product->setThumbnail($current_img);
+                    }
                 }
 
 
@@ -191,6 +201,19 @@ class ProductController
         if (isset($_GET['id'])) {
             $product = new Product();
             $product->setID($_GET['id']);
+
+            $img_to_delete = $product->getImg();
+
+            if($img_to_delete->num_rows >=1){
+                $img = $img_to_delete->fetch_object();
+                $dir = dirname(__DIR__.'../');
+                $path_img = $dir . '/uploads/images/' . $img->thumbnail;
+
+                if (file_exists($path_img)) {
+                    unlink($path_img);
+                }
+            }
+
             $status = $product->delete();
 
             if ($status) {

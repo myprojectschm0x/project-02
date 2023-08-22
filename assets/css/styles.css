@@ -120,6 +120,11 @@ input[type="submit"]:active{
     color: #3dff3d;
 }
 
+form img{
+    width: 200px;
+    height: 200px;
+}
+
 .alert{
     display: block;
     padding: 15px;
@@ -190,6 +195,10 @@ a:visited{
 .btn-buy:active{
     background-color: #ff6347;
     box-shadow: 0 0 9px #ff6347;
+    color: white;
+}
+
+.btn-buy:visited{
     color: white;
 }
 
@@ -342,6 +351,10 @@ a:visited{
     font-size: 22px;
     margin: 24px 0;
 }
+#section .product .item h2 a{
+    text-decoration: none;
+    color: #7094f8;
+}
 
 #section .product .item span{
     font-size: 13px;
@@ -381,6 +394,7 @@ a:visited{
     display: block;
     width: 97%;
     margin: 0 auto;
+    margin-bottom: 30px;
     padding: 15px;
     background-color: #d4f3ff;
     border-radius: 9px;
@@ -406,6 +420,11 @@ a:visited{
 #section  .product-show textarea{
     color: black;
     border: 1px solid #957070;
+}
+
+#section .product-show .btn-show{
+    width: 50%;
+    text-align: center;
 }
 
 
