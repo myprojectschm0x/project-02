@@ -1,7 +1,11 @@
 <?php 
 
 class OrderController{
+
     public function index(){
-        echo "OrderController, Action: INdex";
+        echo "Order Controller, index";
+    }
+    public function add(){
+        
     }
 }

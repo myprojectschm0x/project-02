@@ -14,13 +14,18 @@ class Utils{
         return $sessionName;
     }
 
+    public static function isUser(){
+        if(!isset($_SESSION['identity'])){
+            header("Location:/");
+        }
+        return true;
+    }
 
     public static function isAdmin(){
         if(!isset($_SESSION['admin'])){
             header("Location:/");
-        }else{
-            return true;
         }
+        return true;
     }
 
     public static function categoryMenu(){

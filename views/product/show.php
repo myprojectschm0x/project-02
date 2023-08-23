@@ -21,8 +21,9 @@
             <?php if (isset($_SESSION['admin']) && $_SESSION['admin']) : ?>
                 <a class="btn btn-green" href="/product/edit&id=<?= $item->id ?>">Editar</a>
                 <a class="btn btn-danger" href="/product/delete&id=<?= $item->id ?>">Borrar</a>
+                <a class="btn-buy btn-show" href="/cart/add&product_id=<?=$item->id?>">Comprar</a>
             <?php else : ?>
-                <a class="btn-buy btn-show" href="#">Comprar</a>
+                <a class="btn-buy btn-show" href="/cart/add&id=<?=$item->id?>">Comprar</a>
             <?php endif; ?>
         <?php else : ?>
             <p>¡No existe tal producto, lo sentimos!</p>

@@ -1,6 +1,16 @@
 <!-- Aside -->
 <aside id="aside">
     <div class="spacing-90px"></div>
+    <div id="cart" class="block_aside">
+        <h3>Mi carrito</h3>
+        <div class="management">
+            <ul>
+                <li><a href="/cart/index">Productos ()</a></li>
+                <li><a href="/cart/index">Total: <strong>$ 0 MXN ()</strong></a></li>
+                <li><a href="/cart/index">Ver el carrito</a></li>
+            </ul>
+        </div>
+    </div>
     <div id="login" class="block_aside">
         <?php if (!isset($_SESSION['identity'])) : ?>
             <h2 class="subtitle">Login</h2>
