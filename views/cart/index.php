@@ -7,9 +7,8 @@
                 <tr>
                     <th>Imagen</th>
                     <th>Nombre</th>
-                    <th>Precio</th>
                     <th>Unidades</th>
-                    <th>Total</th>
+                    <th>Precio</th>
                 </tr>
                 <?php foreach ($cart as $index => $item) :
                     $item_obj = $item['product'];
@@ -23,12 +22,21 @@
                             <?php endif; ?>
                         </td>
                         <td><a href="/product/show&id=<?= $item_obj->id ?>"><?= $item_obj->name ?></a></td>
-                        <td><?= $item['price'] ?></td>
                         <td><?= $item['unity'] ?></td>
-                        <td>$0MXN</td>
+                        <td><?= $item['price'] ?></td>
+                        <td></td>
                     </tr>
                 <?php endforeach; ?>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><strong>Total</strong></td>
+                    <?php $stats = Utils::stats_cart(); ?>
+                    <td>$<strong><?=$stats['total']?></strong></td>
+                </tr>
             </table>
+            <a class="btn btn-green f-right btn-cart" href="#">Continuar con el pedido</a>
+            <div class="clear-fix"></div>
         <?php else: ?>
             <p>¡No hay productos que mostrar!</p>
         <?php endif; ?>

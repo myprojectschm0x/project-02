@@ -42,4 +42,21 @@ class Utils{
 
         return $category->list();
     }
+
+    # Statistic Cart
+    public static function stats_cart(){
+        $stats = array(
+            "count" => 0,
+            "total" => 0
+        );
+
+        if(isset($_SESSION['cart'])){
+            $stats['count'] = count($_SESSION['cart']);
+            foreach($_SESSION['cart'] as  $product){
+                $stats['total'] += $product['price'] * $product['unity'];
+            }
+        }
+
+        return $stats;
+    }
 }

@@ -1,16 +1,19 @@
 <!-- Aside -->
 <aside id="aside">
     <div class="spacing-90px"></div>
-    <div id="cart" class="block_aside">
-        <h3>Mi carrito</h3>
-        <div class="management">
-            <ul>
-                <li><a href="/cart/index">Productos ()</a></li>
-                <li><a href="/cart/index">Total: <strong>$ 0 MXN ()</strong></a></li>
-                <li><a href="/cart/index">Ver el carrito</a></li>
-            </ul>
+    <?php if (isset($_SESSION['identity'])) : ?>
+        <div id="cart" class="block_aside">
+            <h3>Mi carrito</h3>
+            <div class="management">
+                <ul>
+                    <?php $cart_product = Utils::stats_cart(); ?>
+                    <li><a href="/cart/index">Productos (<?=$cart_product['count']?>)</a></li>
+                    <li><a href="/cart/index">Total: <strong>$ <?=$cart_product['total']?> MXN ()</strong></a></li>
+                    <li><a href="/cart/index">Ver el carrito</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
+    <?php endif; ?>
     <div id="login" class="block_aside">
         <?php if (!isset($_SESSION['identity'])) : ?>
             <h2 class="subtitle">Login</h2>
@@ -26,7 +29,7 @@
         <?php endif; ?>
         <div class="management">
             <ul>
-                <?php if ( isset($_SESSION['admin']) ) : ?>
+                <?php if (isset($_SESSION['admin'])) : ?>
                     <li><a href="/product/management">Administrar Productos</a></li>
                     <li><a href="/category/index">Administrar Categorías</a></li>
                     <li><a href="#">Administrar Pedidos</a></li>
@@ -34,7 +37,7 @@
                 <?php if (isset($_SESSION['identity'])) : ?>
                     <li><a href="#">Mis Pedidos</a></li>
                     <li><a href="/user/logout">Cerrar Sesión</a></li>
-                <?php else: ?>
+                <?php else : ?>
                     <li>Si no tienes cuenta, <a href="/user/register">¡Registrate ahí!</a></li>
                 <?php endif; ?>
             </ul>
