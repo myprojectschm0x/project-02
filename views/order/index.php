@@ -10,8 +10,6 @@
             <label for="address">Dirección:</label>
             <input type="text" name="address" required/>
 
-            <label for="total_price">Total</label>
-            <input type="text" name="total_price" value="<?=$cart['total']?>" placeholder="$<?=$cart['total']?>MXN" readonly />
 
             <input type="submit" value="Confirmar Pedido" />
         </form>
