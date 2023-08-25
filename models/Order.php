@@ -165,4 +165,19 @@ class Order
         }
         return $status;
     }
+
+    public function updateDeliveryStatus(){
+        $sql = "UPDATE `order` SET delivery_status = '{$this->getDeliveryStatus()}' "
+                ."WHERE id = {$this->getID()}";
+        $query = $this->db->query($sql);
+
+        $status = false;
+        if($query){
+            $status = true;
+        }
+
+        return $status;
+    }
+
+    public function updateStatus(){}
 }

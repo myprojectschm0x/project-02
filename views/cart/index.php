@@ -35,6 +35,7 @@
                     <td>$<strong><?=$stats['total']?></strong></td>
                 </tr>
             </table>
+            <a class="btn btn-danger f-right btn-cart" href="/order/index">Continuar con el pedido</a>
             <a class="btn btn-green f-right btn-cart" href="/order/index">Continuar con el pedido</a>
             <div class="clear-fix"></div>
         <?php else: ?>

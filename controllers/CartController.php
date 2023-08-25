@@ -54,11 +54,9 @@ class CartController
 
     public function remove()
     {
+        
     }
 
-    public function delete()
-    {
-    }
 
     public function delete_all()
     {
