@@ -228,6 +228,12 @@ a:visited{
     color: white;
 }
 
+.btn-unity{
+    color: white;
+    background-color: black;
+    border-radius: 50%;
+}
+
 .cart_img{
     width: 50px;
     height: 50px;

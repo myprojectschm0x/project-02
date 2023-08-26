@@ -56,6 +56,33 @@ class CartController
         header("Location:/cart/index");
     }
 
+    public function up(){
+        Utils::isUser();
+        if(!isset($_GET['index'])){
+            header("Location:/");
+        }
+        # Add One. 
+        $index = $_GET['index'];
+        $_SESSION['cart'][$index]['unity']++;
+
+        header("Location:/cart/index");
+    }
+    public function down(){
+        Utils::isUser();
+        if(!isset($_GET['index'])){
+            header("Location:/");
+        }
+
+        $index = $_GET['index'];
+        $_SESSION['cart'][$index]['unity']--;
+
+        if($_SESSION['cart'][$index]['unity'] == 0){
+            unset($_SESSION['cart'][$_GET['index']]);
+        }
+        
+        header("Location:/cart/index");
+    }
+
     public function remove()
     {
         if(!isset($_GET['index'])){

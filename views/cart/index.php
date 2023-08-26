@@ -23,7 +23,11 @@
                             <?php endif; ?>
                         </td>
                         <td><a href="/product/show&id=<?= $item_obj->id ?>"><?= $item_obj->name ?></a></td>
-                        <td><?= $item['unity'] ?></td>
+                        <td>
+                            <a href="/cart/up&index=<?=$index?>" class="btn btn-unity">+</a>
+                            <?= $item['unity'] ?>
+                            <a href="/cart/down&index=<?=$index?>" class="btn btn-unity">-</a>
+                        </td>
                         <td><?= $item['price'] ?></td>
                         <td><a class="btn btn-danger remove-item" href="/cart/remove&index=<?=$index?>">Eliminar</a></td>
                     </tr>
