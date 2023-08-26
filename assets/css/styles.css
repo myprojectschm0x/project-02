@@ -26,12 +26,22 @@ body{
     height: 50px;
 }
 
+.f-left{
+    float: left;
+}
 .f-right{
     float:right;
+}
+.ml-20{
+    margin-left: 20px;
+}
+.mr-20{
+    margin-right: 20px;
 }
 .mt-20{
     margin-top: 20px;
 }
+
 
 .subtitle{
     font-size: 29px;
@@ -185,8 +195,6 @@ a:visited{
 .btn-cart{
     display: block;
     width: 30%;
-    margin: 0 auto;
-    margin-top: 20px;
     padding: 13px;
     text-align: center;
 }
@@ -397,6 +405,13 @@ a:visited{
 #section .list a{
     color:white;
     text-decoration: none;
+}
+
+#section .list .link-product{
+    color: blue;
+}
+#section .list .remove-item{
+    color: white;
 }
 
 #section .list table a{

@@ -6,7 +6,11 @@ class CartController
     public function index()
     {
         Utils::isUser();
-        $cart = $_SESSION['cart'];
+        if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0 ){
+            $cart = $_SESSION['cart'];
+        }else{
+            $cart = array();
+        }
         require_once 'views/cart/index.php';
 
     }
@@ -54,7 +58,11 @@ class CartController
 
     public function remove()
     {
-        
+        if(!isset($_GET['index'])){
+            header("Location:/");
+        }
+        unset($_SESSION['cart'][$_GET['index']]);
+        header("Location:/cart/index");
     }
 
 

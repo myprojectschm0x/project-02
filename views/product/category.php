@@ -8,7 +8,7 @@
                     <img src="./assets/img/playera.jpg" alt="Playera">
                     <h2 class=""><a href="/product/show&id=<?= $product->id ?>"><?= $product->name ?></a></h2>
                     <p><span>$<?= $product->price ?>MXN</span></p>
-                    <a class="btn-buy" href="#">Comprar</a>
+                    <a class="btn-buy" href="/cart/add&product_id=<?=$product->id?>">Comprar</a>
                 </article>
             <?php endwhile; ?>
         <?php else : ?>

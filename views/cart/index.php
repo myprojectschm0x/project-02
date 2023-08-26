@@ -2,13 +2,14 @@
     <div class="spacing-90px">
     </div>
     <div class="list">
-        <?php if (isset($cart)) : ?>
+        <?php if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0  ) : ?>
             <table>
                 <tr>
                     <th>Imagen</th>
                     <th>Nombre</th>
                     <th>Unidades</th>
                     <th>Precio</th>
+                    <th>Acción</th>
                 </tr>
                 <?php foreach ($cart as $index => $item) :
                     $item_obj = $item['product'];
@@ -24,7 +25,7 @@
                         <td><a href="/product/show&id=<?= $item_obj->id ?>"><?= $item_obj->name ?></a></td>
                         <td><?= $item['unity'] ?></td>
                         <td><?= $item['price'] ?></td>
-                        <td></td>
+                        <td><a class="btn btn-danger remove-item" href="/cart/remove&index=<?=$index?>">Eliminar</a></td>
                     </tr>
                 <?php endforeach; ?>
                 <tr>
@@ -35,11 +36,12 @@
                     <td>$<strong><?=$stats['total']?></strong></td>
                 </tr>
             </table>
-            <a class="btn btn-danger f-right btn-cart" href="/order/index">Continuar con el pedido</a>
-            <a class="btn btn-green f-right btn-cart" href="/order/index">Continuar con el pedido</a>
+            <a class="btn btn-danger f-right btn-cart mt-20 ml-20" href="/cart/delete_all">Vaciar el carrito</a>
+            <a class="btn btn-green f-right btn-cart mt-20" href="/order/index">Continuar con el pedido</a>
             <div class="clear-fix"></div>
         <?php else: ?>
-            <p>¡No hay productos que mostrar!</p>
+            <p>¡El carrito está vacío, visita nuestro productos que pueda interesar!</p>
+            <a class="link-product" href="/">Productos</a>
         <?php endif; ?>
     </div>
 
