@@ -44,8 +44,10 @@
                 <input type="number" name="discount" id="discount" step="0.01" value="<?=$item->stock?>" />
 
                 <label for="thumbnail">Imagen</label>
-                <?php if($item->thumbnail):?>
+                <?php if($item->thumbnail && $item->thumbnail != ''):?>
                     <img src="<?=base_url?>/uploads/images/<?=$item->thumbnail?>" alt="<?=$item->name?>" />
+                <?php else: ?>
+                    <img src="<?=base_url?>/assets/img/default.jpg" alt="default">
                 <?php endif; ?>
                 <input type="file" name="thumbnail" accept="image/png, image/jpeg, image/jpg" />
 

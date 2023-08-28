@@ -103,7 +103,6 @@ class Order
     public function getOrderByUser()
     {
         $sql = "SELECT o.id, o.total_price FROM `order` o ";
-        # $sql .= "INNER JOIN ticket t ON t.order_id = o.id ";
         $sql .= "WHERE o.user_id = {$this->getUserID()} ORDER BY o.id DESC LIMIT 1";
 
         return $this->db->query($sql)->fetch_object();
@@ -120,10 +119,6 @@ class Order
 
     public function getProductsByOrder($id)
     {
-        // $sql  = "SELECT * FROM product WHERE id IN (";
-        // $sql .= "SELECT product_id FROM ticket WHERE order_id = {$id}";
-        // $sql .= ")";
-
         $sql = "SELECT p.*, t.unity FROM product p "
             . "INNER JOIN ticket t ON p.id = t.product_id "
             . "WHERE t.order_id={$id}";

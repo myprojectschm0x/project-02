@@ -36,7 +36,6 @@ class User{
 
     public function getPwd(){
         return password_hash($this->db->real_escape_string($pwd), PASSWORD_BCRYPT, ['cost' => 4]);
-        // return $this->pwd;
     }
 
     public function getRole(){

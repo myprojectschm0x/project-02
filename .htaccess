@@ -7,9 +7,6 @@ ErrorDocument 404 http://localhost/proyectos/02-proyecto/error/
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
 
-# RewriteCond %{REQUEST_FILENAME} `!-f`
-# RewriteCond %{REQUEST_FILENAME} `!-d`
 
-# RewriteRule ^/?([a-zA-Z]+)/([a-zA-Z]+) index.php?controller=$1&action=$2
  RewriteRule ^(.*)/(.*) index.php?controller=$1&action=$2
 </IfModule>

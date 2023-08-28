@@ -44,9 +44,6 @@ class Product{
     public function getDiscount(){
         return (double)$this->discount;
     }
-    // public function getDate(){
-    //     return $this->date;
-    // }
 
     public function getThumbnail(){
         return $this->thumbnail;
@@ -80,9 +77,6 @@ class Product{
         $this->discount = $this->db->real_escape_string($per);
     }
 
-    // public function setDate($date){
-    //     $this->date = $this->db->real_escape_string($date);
-    // }
     public function setThumbnail($img){
         $this->thumbnail = $this->db->real_escape_string($img);
     }
@@ -118,9 +112,6 @@ class Product{
             $sql .= ",'{$this->getThumbnail()}' ";
         }
         $sql .= " )";
-        # MOstrar errores; Tips para depurar.
-        // echo $this->db->error;
-        // die();
         $status_sql = $this->db->query($sql);
 
         

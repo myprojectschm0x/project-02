@@ -8,12 +8,10 @@ create table user(
     password varchar(255) not null,
     role varchar(20) not null,
     thumbnail varchar(255),
+    date_start date,
     constraint pk_user primary key (id),
     constraint uq_email unique (email)
 )engine=InnoDB;
-
-insert into user(name, surname, email, password, role)
-values ('Administrator','admin','admin@admin.com','admin','Admin');
 
 create table category(
     id int auto_increment not null,
@@ -35,7 +33,7 @@ create table product(
     description text,
     price double(10,2) not null,
     stock int not null,
-    discount varchar(2),
+    discount double(10,2),
     `date` date,
     thumbnail varchar(255),
     constraint pk_product primary key (id),
@@ -46,10 +44,10 @@ create table product(
 create table `order` (
     id int auto_increment not null,
     user_id int not null,
-    province varchar(155),
     location varchar(155),
     address varchar(255),
-    state varchar(155),
+    status tinyint not null default 0,
+    delivery_status varchar(155),
     total_price double(10,2) not null,
     `date` date,
     `time` time,

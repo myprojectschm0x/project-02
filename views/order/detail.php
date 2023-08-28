@@ -41,7 +41,7 @@
                             <?php if ($product->thumbnail && $product->thumbnail != '') : ?>
                                 <img class="cart_img" src="<?= base_url ?>/uploads/images/<?= $product->thumbnail ?>" alt="<?= $product->thumbnail ?>" />
                             <?php else : ?>
-                                <img class="cart_img" src="<?= base_url ?>/uploads/images/default.jpg" alt="default_image" />
+                                <img class="cart_img" src="<?= base_url ?>/assets/img/default.jpg" alt="default_image" />
                             <?php endif; ?>
                         </td>
                         <td><?= $product->name ?></td>

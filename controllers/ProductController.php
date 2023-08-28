@@ -85,7 +85,6 @@ class ProductController
                 $product->setPrice($price);
                 $product->setStock($stock);
                 $product->setDiscount($discount);
-                // $product->setThumbnail($thumbnail);
 
                 # Upload an image.
                 if (isset($_FILES['thumbnail'])) {

@@ -20,7 +20,6 @@ if (isset($_GET['controller'])) {
 }elseif(!isset($_GET['controller']) && !isset($_GET['action']) ){
     $controller_name = controller_default;
 } else {
-    echo "La página que buscas no existe";
     showErrors();
     exit();
 }
@@ -37,11 +36,9 @@ if (class_exists($controller_name)) {
         $action = action_default;
         $controller->$action();
     } else {
-        echo "No existe un tal método";
         showErrors();
     }
 } else {
-    echo "No existe una clase";
     showErrors();
 }
 

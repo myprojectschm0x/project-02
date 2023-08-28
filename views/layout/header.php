@@ -15,7 +15,7 @@
         <!-- Header -->
         <header id="header">
             <div id="logo">
-                <img src="<?=dir_url?>assets/img/terminal_logo.png" alt="terminal Logo" />
+                <img src="<?=dir_url?>assets/img/shop_logo_2.jpg" alt="Shop Logo" />
                 <a href="/product/index">Shop</a>
             </div>
         </header>

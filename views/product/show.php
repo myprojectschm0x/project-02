@@ -6,10 +6,10 @@
             <?php $item = $fetch_product->fetch_object(); ?>
             <h2><?= $item->name ?></h2>
             <div class="central-img">
-                <?php if ($item->thumbnail) : ?>
+                <?php if ($item->thumbnail && $item->thumbnail != '') : ?>
                     <img src="<?= base_url ?>/uploads/images/<?= $item->thumbnail ?>" alt="<?= $item->name ?>" />
                 <?php else : ?>
-                    <img src="<?= base_url ?>/uploads/images/default.jpg" alt="<?= $item->name ?>" />
+                    <img src="<?= base_url ?>/assets/img/default.jpg" alt="<?= $item->name ?>" />
                 <?php endif; ?>
             </div>
             <p><span><?= $item->category_name ?></span> | <span><?= $item->date ?></span></p>

@@ -19,7 +19,7 @@
                             <?php if ($item_obj->thumbnail && $item_obj->thumbnail != '') : ?>
                                 <img class="cart_img" src="<?= base_url ?>/uploads/images/<?= $item_obj->thumbnail ?>" alt="<?= $item_obj->thumbnail ?>" />
                             <?php else : ?>
-                                <img class="cart_img" src="<?= base_url ?>/uploads/images/default.jpg" alt="default_image" />
+                                <img class="cart_img" src="<?= base_url ?>/assets/img/default.jpg" alt="default_image" />
                             <?php endif; ?>
                         </td>
                         <td><a href="/product/show&id=<?= $item_obj->id ?>"><?= $item_obj->name ?></a></td>
