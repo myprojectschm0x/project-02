@@ -15,10 +15,11 @@ As an user, it can see detail and "order" a product.
 3. MySQL
 4. Git
 5. OOP
-6. Static Class
-7. Create and moving files
-8. Autoload
-9. Session
+6. MVC
+7. Static Class
+8. Create and moving files
+9. Autoload
+10. Session
 
 ## Setup
 
